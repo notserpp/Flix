@@ -146,6 +146,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gdK-eW-bKO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K9O-Tw-C4O">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -156,23 +157,59 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Sx-dN-RfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="187"/>
+            <point key="canvasLocation" x="2001" y="187"/>
         </scene>
-        <!--View Controller-->
+        <!--Superhero-->
         <scene sceneID="aLg-sS-MxP">
             <objects>
-                <viewController id="Sen-he-l9g" sceneMemberID="viewController">
+                <viewController id="Sen-he-l9g" customClass="SuperheroViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdt-Te-JWJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-AM-Ehk">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4MA-5s-X44">
+                                    <size key="itemSize" width="128" height="210"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterCell" id="vSB-vx-pri" customClass="PosterCell" customModule="Flix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="210"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-Iy-yaP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="210"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="0Sd-Iy-yaP" id="8gu-uw-Ch7"/>
+                                            <segue destination="IJf-B1-eaK" kind="show" id="6GH-5O-u9i"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2tM-iC-VuZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="efi-1c-o2H"/>
+                    <navigationItem key="navigationItem" title="Superhero" id="efi-1c-o2H"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Yg4-AM-Ehk" id="A3h-h1-tUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFA-nK-TGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2931.8840579710145" y="998.64130434782612"/>
+            <point key="canvasLocation" x="2928.985507246377" y="1105.4347826086957"/>
         </scene>
         <!--Superhero-->
         <scene sceneID="bim-xy-dYR">
@@ -191,11 +228,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWs-tF-MdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024.6376811594205" y="998.64130434782612"/>
+            <point key="canvasLocation" x="2001" y="1106"/>
         </scene>
     </scenes>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6GH-5O-u9i"/>
+    </inferredMetricsTieBreakers>
 </document>
